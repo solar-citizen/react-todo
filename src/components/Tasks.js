@@ -38,7 +38,7 @@ const Tasks = () => {
 
   return (
     <div className="todo__tasks">
-      <Message />
+      <Message tasks={tasks} />
       <Tasklist tasks={tasks} setTasks={setTasks} />
       <Form
         inputText={inputText}

@@ -3,7 +3,9 @@ import React from "react";
 const Task = ({ text, task, tasks, setTasks }) => {
   // events
   const deleteHandler = () => {
-    setTasks(tasks.filter((element) => element.id !== task.id));
+    setTimeout(() => {
+      setTasks(tasks.filter((element) => element.id !== task.id));
+    }, 750);
   };
 
   const completeHandler = () => {
@@ -21,7 +23,11 @@ const Task = ({ text, task, tasks, setTasks }) => {
   };
 
   return (
-    <li className={`tasks-list__task ${task.completed ? "completed" : ""}`}>
+    <li
+      className={`tasks-list__task ${task.completed ? "completed" : ""} ${
+        deleteHandler ? "delete" : ""
+      }`}
+    >
       <input
         onClick={completeHandler}
         className="task__check"

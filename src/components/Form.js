@@ -8,10 +8,16 @@ const Form = ({ inputText, setInputText, tasks, setTasks }) => {
   const submitTaskHandler = (e) => {
     e.preventDefault();
 
-    setTasks([
-      ...tasks,
-      { text: inputText, completed: false, id: Math.random() * 1000 },
-    ]);
+    if (inputText) {
+      setTasks([
+        ...tasks,
+        {
+          text: inputText,
+          completed: false,
+          id: Math.random() * 1000,
+        },
+      ]);
+    }
 
     setInputText("");
   };
