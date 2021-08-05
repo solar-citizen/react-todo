@@ -1,38 +1,165 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .todo {
+  max-width: 30rem;
+  width: 100%;
+  box-shadow: 0 0 1rem 1px #ccc;
+}
+main .todo__profile {
+  background: url("../src/img/profile__bg.jpg") center center/cover no-repeat;
+  height: 18.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .todo__profile .profile-pic {
+  position: relative;
+}
+main .todo__profile .profile-pic .avatar {
+  width: 6.5rem;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+}
+main .todo__profile .profile-pic::before {
+  content: "";
+  display: block;
+  width: 6.5rem;
+  height: 6.5rem;
+  position: absolute;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: -4px;
+  left: -4px;
+}
+main .todo__list {
+  padding: 1.9rem;
+}
+main .todo__list .todo__title {
+  color: #333;
+  font-size: 2.25rem;
+}
+main .todo__list .todo__tasks {
+  padding-top: 1.75rem;
+}
+main .todo__list .todo__tasks .tasks-list {
+  list-style: none;
+}
+main .todo__list .todo__tasks .tasks-list__task {
+  padding: 0.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+}
+main .todo__list .todo__tasks .tasks-list__task .task__check {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+}
+main .todo__list .todo__tasks .tasks-list__task .task__description {
+  padding: 0 0.75rem;
+  text-transform: capitalize;
+  position: relative;
+  color: #fa396b;
+}
+main .todo__list .todo__tasks .tasks-list__task:hover .task__delete {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -1.25rem;
+  top: 50%;
+  transform: translateY(-40%);
+  width: 20px;
+  height: 20px;
+  background: url("../src/icons/trash.png") center center/cover no-repeat;
+  cursor: pointer;
+}
+main .todo__list .todo__tasks .tasks-list__task:hover .task__delete:active {
+  transform: scale(0.95);
+  transform: translateY(-35%);
+}
+main .todo__list .todo__tasks .tasks-list__task.delete {
+  animation: opacity 1s ease-in-out;
+}
+main .todo__list .todo__tasks .tasks-list .completed > .task__description {
+  color: green;
+  text-decoration: line-through;
+}
+main .todo__list .todo__tasks .empty-message {
   text-align: center;
+  background-color: blanchedalmond;
+  padding: 1rem 0;
+  border-radius: 7px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main .todo .add-task {
+  margin-top: 2.75rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+main .todo .add-task > * {
+  border-radius: 7px;
+  font-family: "Oswald", sans-serif;
+}
+main .todo .add-task__input {
+  height: 3.375rem;
+  padding: 0 0.75rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 1rem 1px #ccc inset;
+  font-size: 1rem;
+}
+main .todo .add-task__input:hover,
+main .todo .add-task__input:focus,
+main .todo .add-task__input:active {
+  outline: 2px solid #969696;
+  outline-style: auto;
+}
+main .todo .add-task__btn {
+  height: 4.125rem;
+  margin-top: 1rem;
+  background-color: #037c1f;
   color: white;
+  font-size: 1.5rem;
+  border: 2px solid #037c1f;
+  cursor: pointer;
+}
+main .todo .add-task__btn:hover {
+  background-color: #026319;
+  border: 2px solid #026319;
+}
+main .todo .add-task__btn:active {
+  background-color: #026319;
+  transform: scale(0.9);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes opacity {
   from {
-    transform: rotate(0deg);
+    opacity: 1;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 0;
   }
 }
