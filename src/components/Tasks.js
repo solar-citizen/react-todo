@@ -9,17 +9,30 @@ const Tasks = () => {
   const [inputText, setInputText] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  // use effect
+  // runs once when the app starts
+  useEffect(() => {
+    getLocalTasks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // runs every time
   useEffect(() => {
     saveLocalTasks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tasks]);
 
   // send task(-s) to local storage
   const saveLocalTasks = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
+
+  // get task(-s) from local storage
+  const getLocalTasks = () => {
     if (localStorage.getItem("tasks") === null) {
       localStorage.setItem("tasks", JSON.stringify([]));
     } else {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+      let taskLocal = JSON.parse(localStorage.getItem("tasks"));
+      setTasks(taskLocal);
     }
   };
 
