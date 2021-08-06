@@ -4,8 +4,8 @@ import profilePic from "../img/profile__avatar.jpg";
 
 const Profile = () => {
   return (
-    <div className="todo__profile">
-      <div className="profile-pic">
+    <div className="todo-profile">
+      <div className="todo-profile__pic">
         <img className="avatar" src={profilePic} alt="avatar" />
       </div>
     </div>

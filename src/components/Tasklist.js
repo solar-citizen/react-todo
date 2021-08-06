@@ -4,7 +4,7 @@ import Task from "./Task";
 
 const Tasklist = ({ tasks, setTasks }) => {
   return (
-    <ul className="tasks-list">
+    <ul className="task-container">
       {tasks.map((task) => (
         <Task
           task={task}

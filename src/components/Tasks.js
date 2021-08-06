@@ -37,7 +37,7 @@ const Tasks = () => {
   };
 
   return (
-    <div className="todo__tasks">
+    <div className="todo-list__tasks">
       <Message tasks={tasks} />
       <Tasklist tasks={tasks} setTasks={setTasks} />
       <Form

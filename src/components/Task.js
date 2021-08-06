@@ -4,36 +4,30 @@ const Task = ({ text, task, tasks, setTasks }) => {
   // events
   const deleteHandler = () => {
     setTimeout(() => {
-      setTasks(tasks.filter((element) => element.id !== task.id));
+      setTasks(tasks.filter((taskItem) => taskItem.id !== task.id));
     }, 100);
   };
 
   const completeHandler = () => {
     setTasks(
-      tasks.map((element) => {
-        if (element.id === task.id) {
+      tasks.map((taskItem) => {
+        if (taskItem.id === task.id) {
           return {
-            ...element,
-            completed: !element.completed,
+            ...taskItem,
+            completed: !taskItem.completed,
           };
         }
-        return element;
+        return taskItem;
       })
     );
   };
 
-  /* ${deleteHandler ? "delete" : ""} */
-
   return (
-    <li className={`tasks-list__task ${task.completed ? "completed" : ""} `}>
-      <input
-        onClick={completeHandler}
-        className="task__check"
-        type="checkbox"
-      />
-      <span className="task__description">
+    <li className={`task ${task.completed ? "completed" : ""}`}>
+      <input onClick={completeHandler} className="task-input" type="checkbox" />
+      <span className="task-description">
         {text}
-        <div onClick={deleteHandler} className="task__delete"></div>
+        <div onClick={deleteHandler} className="task-description__delete"></div>
       </span>
     </li>
   );
