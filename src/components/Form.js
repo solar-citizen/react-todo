@@ -15,6 +15,7 @@ const Form = ({ inputText, setInputText, tasks, setTasks }) => {
           text: inputText,
           completed: false,
           id: Math.random() * 1000,
+          onDelete: false,
         },
       ]);
     }

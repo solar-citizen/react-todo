@@ -5,7 +5,7 @@ const Task = ({ text, task, tasks, setTasks }) => {
   const deleteHandler = () => {
     setTimeout(() => {
       setTasks(tasks.filter((element) => element.id !== task.id));
-    }, 750);
+    }, 100);
   };
 
   const completeHandler = () => {
@@ -22,12 +22,10 @@ const Task = ({ text, task, tasks, setTasks }) => {
     );
   };
 
+  /* ${deleteHandler ? "delete" : ""} */
+
   return (
-    <li
-      className={`tasks-list__task ${task.completed ? "completed" : ""} ${
-        deleteHandler ? "delete" : ""
-      }`}
-    >
+    <li className={`tasks-list__task ${task.completed ? "completed" : ""} `}>
       <input
         onClick={completeHandler}
         className="task__check"
